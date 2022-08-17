@@ -2,11 +2,13 @@ package com.gwssi.calculate.util;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.List;
+
 
 public class ExpUtils {
 
 
-    public static void getExp(String exp) {
+    public static void getExp(String exp, List<String> coordinate) {
         if (StringUtils.isEmpty(exp)) throw new IllegalArgumentException("表达式不能为空");
         if (!exp.contains("=")) throw new IllegalArgumentException("汇总表达式格式不正确");
         String[] split = exp.split("=");
@@ -38,9 +40,5 @@ public class ExpUtils {
         //判断大括号个数是否和星号个数相同
         if (i != BracketUtil.matcherBracketValue(left.substring(stringBuilder.length()), false).size())
             throw new IllegalArgumentException("*号范围和大括号不匹配");
-    }
-
-    public static void main(String[] args) {
-//        ExpUtils.validate("[*,*]{1,2}{4,5}");
     }
 }

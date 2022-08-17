@@ -5,6 +5,7 @@ import com.gwssi.struct.model.data.ReportData;
 import com.gwssi.struct.model.exp.Exp;
 import com.gwssi.struct.model.style.Report;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +13,10 @@ public abstract class AbstractCalculator implements Calculator {
     //存储当前已计算的表达式
     private Map<String, Object> valueMap;
 
-    @Override
+    //存储所有展开的表达式
+    private List<String> developList;
 
+    @Override
     public ReportData calculate(Report report, List<String> expressionList) {
         return null;
     }
