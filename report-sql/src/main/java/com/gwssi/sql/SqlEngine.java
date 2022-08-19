@@ -1,33 +1,46 @@
 package com.gwssi.sql;
 
 import com.gwssi.sql.callback.ReportCallBack;
-import com.gwssi.sql.define.ReportGrammar;
+import com.gwssi.sql.define.Grammar;
+import com.gwssi.sql.define.GrammarValidate;
 import com.gwssi.sql.entity.ExpEntity;
 import com.gwssi.sql.entity.TableEntity;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.Map;
 
 @Data
-@Builder
 public class SqlEngine {
 
+    //用于计算的表达式对象
     private ExpEntity expEntity;
+    //当前的回调报表状态
     private ReportCallBack reportCallBack;
-    private ReportGrammar reportGrammar;
+    //当前的语法对象
+    private Grammar grammar;
+    //用于验证的表达式
+    private String exp;
 
-    public SqlEngine(ExpEntity expEntity, ReportGrammar reportGrammar) {
-        this.expEntity = expEntity;
-        this.reportGrammar = reportGrammar;
+    public SqlEngine() {
+
     }
 
+    public SqlEngine(ExpEntity expEntity, ReportCallBack reportCallBack) {
+        this.expEntity = expEntity;
+        this.reportCallBack = reportCallBack;
+        this.grammar = GrammarValidate.validate(expEntity.getCollect(), reportCallBack);
+    }
+
+    public SqlEngine(String exp) {
+        this.exp = exp;
+        this.grammar = GrammarValidate.validate(exp, reportCallBack);
+    }
 
     /**
      * 根据表达式返回sql
      */
     public String callSql() {
-        this.reportGrammar = new ReportGrammar();
+
         //解析主栏条件和宾栏条件
         //提取中括号表达式 并解析出语法内容
         //解析函数
@@ -47,6 +60,6 @@ public class SqlEngine {
      * 验证表达式是否符合语法要求
      */
     public boolean validataExp() {
-        return false;
+        return grammar.validateExp(exp);
     }
 }

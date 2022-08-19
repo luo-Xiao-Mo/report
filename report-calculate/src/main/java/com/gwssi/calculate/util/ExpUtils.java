@@ -1,5 +1,6 @@
 package com.gwssi.calculate.util;
 
+import com.gwssi.sql.BracketUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;

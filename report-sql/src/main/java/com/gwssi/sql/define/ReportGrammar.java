@@ -1,11 +1,10 @@
 package com.gwssi.sql.define;
 
+
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class ReportGrammar {
+public class ReportGrammar extends DefaultGrammar {
     //表号
     private String number;
     //报告期
@@ -14,10 +13,19 @@ public class ReportGrammar {
     private String row;
     //纵坐标
     private String column;
-    //时期参数
-    private String period;
-    //行坐标通配
-    private List<String> rowList;
-    //总坐标通配
-    private List<String> columnList;
+
+
+    @Override
+    public Object operateExp(String exp) {
+        return null;
+    }
+
+    @Override
+    public boolean validateExp(String exp) {
+        //验证主线是不是一致
+        //验证格子是否存在
+        //验证符号是否支持
+        //验证函数是否支持
+        return false;
+    }
 }

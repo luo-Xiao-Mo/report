@@ -1,4 +1,4 @@
-package com.gwssi.calculate.util;
+package com.gwssi.sql;
 
 import java.util.ArrayList;
 import java.util.Collection;

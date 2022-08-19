@@ -24,28 +24,28 @@ public class GeneralHandler extends Handler {
     }
 
     public static void main(String[] args) {
-        SqlEngine sqlEngine = SqlEngine.builder().expEntity(null)
-                .reportCallBack(new ReportCallBack() {
-                    @Override
-                    public Map<String, String> enByTablesName(TableEntity tableEntity) {
-                        return new HashMap<>();
-                    }
-
-                    @Override
-                    public List<Map<String, String>> batchTablesName(List<TableEntity> tableEntities) {
-                        return null;
-                    }
-
-                    @Override
-                    public Map<String, String> mainLineByTable(List<String> tables) {
-                        return null;
-                    }
-
-                    @Override
-                    public String relationByTables(String... tables) {
-                        return null;
-                    }
-                }).build();
-        String message = sqlEngine.callSql();
+//        SqlEngine sqlEngine = SqlEngine.builder().expEntity(null)
+//                .reportCallBack(new ReportCallBack() {
+//                    @Override
+//                    public Map<String, String> enByTablesName(TableEntity tableEntity) {
+//                        return new HashMap<>();
+//                    }
+//
+//                    @Override
+//                    public List<Map<String, String>> batchTablesName(List<TableEntity> tableEntities) {
+//                        return null;
+//                    }
+//
+//                    @Override
+//                    public Map<String, String> mainLineByTable(List<String> tables) {
+//                        return null;
+//                    }
+//
+//                    @Override
+//                    public String relationByTables(String... tables) {
+//                        return null;
+//                    }
+//                }).build();
+//        String message = sqlEngine.callSql();
     }
 }

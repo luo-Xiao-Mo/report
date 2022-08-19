@@ -1,7 +1,6 @@
 package com.gwssi.calculate.handler;
 
 import com.gwssi.calculate.model.Term;
-import com.gwssi.calculate.util.BracketUtil;
 import com.gwssi.struct.model.style.PropertyBase;
 import com.gwssi.struct.model.style.Report;
 import com.gwssi.struct.model.style.Sheet;
